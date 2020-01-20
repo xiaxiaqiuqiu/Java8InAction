@@ -108,7 +108,7 @@ public class FilteringApples{
 			return "Apple{" +
 					"color='" + color + '\'' +
 					", weight=" + weight +
-					'}';
+						'}';
 		}
 	}
 
