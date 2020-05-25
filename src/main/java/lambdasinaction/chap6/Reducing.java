@@ -1,5 +1,10 @@
 package lambdasinaction.chap6;
 
+import org.openjdk.jmh.util.*;
+
+import java.util.*;
+import java.util.stream.*;
+
 import static java.util.stream.Collectors.*;
 import static lambdasinaction.chap6.Dish.menu;
 
@@ -10,6 +15,8 @@ public class Reducing {
         System.out.println("Total calories in menu: " + calculateTotalCaloriesWithMethodReference());
         System.out.println("Total calories in menu: " + calculateTotalCaloriesWithoutCollectors());
         System.out.println("Total calories in menu: " + calculateTotalCaloriesUsingSum());
+        System.out.println("Total calories in menu: " + calculateTotalCaloriesUsingSum());
+        System.out.println("names in menu: " + joinDishName());
     }
 
     private static int calculateTotalCalories() {
@@ -26,5 +33,11 @@ public class Reducing {
 
     private static int calculateTotalCaloriesUsingSum() {
         return menu.stream().mapToInt(Dish::getCalories).sum();
+    }
+
+    private static String joinDishName(){
+        Stream<StringBuilder> stream = menu.stream().map(dish -> new StringBuilder(dish.getName()));
+       return stream.reduce(StringBuilder::append).get().toString();
+
     }
 }

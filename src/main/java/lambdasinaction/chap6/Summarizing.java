@@ -21,7 +21,8 @@ public class Summarizing {
 
 
     private static long howManyDishes() {
-        return menu.stream().collect(counting());
+       return menu.stream().collect(counting());
+      //  return menu.stream().count();
     }
 
     private static Dish findMostCaloricDish() {

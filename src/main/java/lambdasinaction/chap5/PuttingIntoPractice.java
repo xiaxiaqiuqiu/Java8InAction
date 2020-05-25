@@ -5,6 +5,7 @@ import lambdasinaction.chap5.*;
 import java.util.*;
 
 import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 public class PuttingIntoPractice{
@@ -58,7 +59,8 @@ public class PuttingIntoPractice{
                         .map(transaction -> transaction.getTrader().getName())
                         .distinct()
                         .sorted()
-                        .reduce("", (n1, n2) -> n1 + n2);
+                       .reduce("", (n1, n2) -> n1 + n2);
+//等价于        .collect(joining());
         System.out.println(traderStr);
         
         // Query 5: Are there any trader based in Milan?

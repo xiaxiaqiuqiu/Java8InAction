@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collector;
 import static java.util.stream.Collector.Characteristics.*;
+import static lambdasinaction.chap6.Dish.menu;
 
 public class ToListCollector<T> implements Collector<T, List<T>, List<T>> {
 
@@ -34,4 +35,5 @@ public class ToListCollector<T> implements Collector<T, List<T>, List<T>> {
     public Set<Characteristics> characteristics() {
         return Collections.unmodifiableSet(EnumSet.of(IDENTITY_FINISH, CONCURRENT));
     }
+
 }

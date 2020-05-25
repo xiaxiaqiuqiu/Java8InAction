@@ -17,7 +17,7 @@ public class Sorting {
 
 
         // [Apple{color='green', weight=80}, Apple{color='red', weight=120}, Apple{color='green', weight=155}]
-        inventory.sort(new AppleComparator());
+       inventory.sort(new AppleComparator());
         System.out.println(inventory);
 
         // reshuffling things a little

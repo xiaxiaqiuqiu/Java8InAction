@@ -18,8 +18,15 @@ public class ConsAndIntConsTransfer {
         Consumer<Integer> consumer = i -> System.out.println(i);
         IntConsumer intConsumer = i -> System.out.println(i);
         ConsAndIntConsTransfer consAndIntConsTransfer = new ConsAndIntConsTransfer();
-        //consAndIntConsTransfer.test(consumer);
-        consAndIntConsTransfer.test(i -> System.out.println(i));
+      //  consAndIntConsTransfer.test(consumer);//面向对象方式
+        consAndIntConsTransfer.test(consumer);//面向对象方式
+        /**如下两种调用方式都会抛错start*/
+        /*consAndIntConsTransfer.test(intConsumer);
+        consAndIntConsTransfer.test((Consumer<Integer>)intConsumer);*/
+        /**如下两种调用方式都会抛错end*/
+      /*  consAndIntConsTransfer.test(consumer::accept);//函数式方式
+        consAndIntConsTransfer.test(intConsumer::accept);//函数式方式
+        consAndIntConsTransfer.test(i -> System.out.println(i));*/
 
     }
 }
